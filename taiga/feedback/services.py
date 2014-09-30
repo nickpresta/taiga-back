@@ -18,6 +18,8 @@ from django.conf import settings
 
 
 def send_feedback(feedback_entry):
-    support_email = getattr(settings, FEEDBACK_EMAIL_SUPPORT, None)
+    support_email = settings.FEEDBACK_EMAIL
+
     if support_email:
         #TODO: send email.
+        pass

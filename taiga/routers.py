@@ -136,7 +136,7 @@ router.register(r"notify-policies", NotifyPolicyViewSet, base_name="notification
 
 
 # feedback
-if getattr(settings, "FEEDBACK_ENABLED", True)
+if settings.FEEDBACK_ENABLED:
     from taiga.feedback.api import FeedbackViewSet
 
     router.register(r"feedback", FeedbackViewSet, base_name="feedback")

@@ -15,8 +15,10 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from rest_framework import serializers
+
 from . import models
 
-class FeedbackEntrySerializer(serializers.ModelSeriealizer):
+
+class FeedbackEntrySerializer(serializers.ModelSerializer):
     class Meta:
         model = models.FeedbackEntry
