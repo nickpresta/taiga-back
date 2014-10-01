@@ -14,8 +14,6 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from django.conf import settings
-
 from taiga.base import routers
 
 router = routers.DefaultRouter(trailing_slash=False)
@@ -128,7 +126,6 @@ router.register(r"issues/(?P<issue_id>\d+)/voters", VotersViewSet, base_name="is
 router.register(r"wiki", WikiViewSet, base_name="wiki")
 router.register(r"wiki-links", WikiLinkViewSet, base_name="wiki-links")
 
-
 # Notify policies
 from taiga.projects.notifications.api import NotifyPolicyViewSet
 
@@ -136,7 +133,6 @@ router.register(r"notify-policies", NotifyPolicyViewSet, base_name="notification
 
 
 # feedback
-if settings.FEEDBACK_ENABLED:
-    from taiga.feedback.api import FeedbackViewSet
+#   - see taiga.feedback.routers and taiga.feedback.apps
 
-    router.register(r"feedback", FeedbackViewSet, base_name="feedback")
+

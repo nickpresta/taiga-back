@@ -14,4 +14,9 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-default_app_config = "taiga.feedback.apps.FeedbackAppConfig"
+from taiga.base import routers
+from . import api
+
+
+router = routers.DefaultRouter(trailing_slash=False)
+router.register(r"feedback", api.FeedbackViewSet, base_name="feedback")

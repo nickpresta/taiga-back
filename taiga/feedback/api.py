@@ -21,16 +21,21 @@ from . import permissions
 from . import serializers
 from . import services
 
+import copy
+
 
 class FeedbackViewSet(viewsets.ViewSet):
     permission_classes = (permissions.FeedbackPermission,)
+    serializer_class = serializers.FeedbackEntrySerializer
 
     def create(self, request, **kwargs):
         self.check_permissions(request, "create", None)
 
-        serializer = serializers.FeedbackViewSet(data=request.DATA)
-        serializer.full_name = request.user.get_full_name()
-        serializer.email = request.user.email
+        data = copy.deepcopy(request.DATA)
+        data.update({"full_name": request.user.get_full_name(),
+                     "email": request.user.email})
+
+        serializer = self.serializer_class(data=data)
 
         if not serializer.is_valid():
             return response.BadRequest(serializer.errors)

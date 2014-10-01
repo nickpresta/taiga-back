@@ -14,4 +14,19 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-default_app_config = "taiga.feedback.apps.FeedbackAppConfig"
+from django.apps import AppConfig
+from django.apps import apps
+from django.conf import settings
+from django.conf.urls import include, url
+
+from .routers import router
+
+
+class FeedbackAppConfig(AppConfig):
+    name = "taiga.feedback"
+    verbose_name = "Feedback"
+
+    def ready(self):
+        if settings.FEEDBACK_ENABLED:
+            from taiga.urls import urlpatterns
+            urlpatterns.append(url(r'^api/v1/', include(router.urls)))

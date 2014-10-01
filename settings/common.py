@@ -324,8 +324,9 @@ TAGS_PREDEFINED_COLORS = ["#fce94f", "#edd400", "#c4a000", "#8ae234",
                           "#5c3566", "#ef2929", "#cc0000", "#a40000",
                           "#2e3436",]
 
+# Feedback module settings
 FEEDBACK_ENABLED = True
-FEEDBACK_EMAIL_SUPPORT = "support@taiga.io"
+FEEDBACK_EMAIL = "support@taiga.io"
 
 
 # NOTE: DON'T INSERT MORE SETTINGS AFTER THIS LINE
