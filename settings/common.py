@@ -290,7 +290,8 @@ REST_FRAMEWORK = {
     "PAGINATE_BY": 30,
     "PAGINATE_BY_PARAM": "page_size",
     "MAX_PAGINATE_BY": 1000,
-    "DATETIME_FORMAT": "%Y-%m-%dT%H:%M:%S%z"
+    "DATETIME_FORMAT": "%Y-%m-%dT%H:%M:%S%z",
+    "DEFAULT_RENDERER_CLASSES": ("rest_framework.renderers.JSONRenderer", ),
 }
 
 DEFAULT_PROJECT_TEMPLATE = "scrum"
