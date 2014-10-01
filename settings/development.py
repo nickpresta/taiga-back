@@ -22,3 +22,8 @@ TEMPLATE_DEBUG = DEBUG
 TEMPLATE_CONTEXT_PROCESSORS += [
     "django.core.context_processors.debug",
 ]
+
+REST_FRAMEWORK["DEFAULT_RENDERER_CLASSES"] = (
+    "rest_framework.renderers.JSONRenderer",
+    "rest_framework.renderers.BrowsableAPIRenderer",
+)
